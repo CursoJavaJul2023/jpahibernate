@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+ <session-factory>
+ 
+  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+  <property name="hibernate.connection.password">Fedora2023</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost/curso</property>
+  <property name="hibernate.connection.username">curso</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.format_sql">true</property>
+  
+  
+  <mapping class="cursojava.jpahibernate.orm.modelobanco.entidades.Cliente"/>
+  <mapping class="cursojava.jpahibernate.orm.modelobanco.entidades.Cuenta"/>
+  <mapping class="cursojava.jpahibernate.orm.modelobanco.entidades.Movimiento"/>
+  <mapping class="cursojava.jpahibernate.orm.modelobanco.entidades.CuentaPk"/>
+  
+ </session-factory
+ >
+</hibernate-configuration>
