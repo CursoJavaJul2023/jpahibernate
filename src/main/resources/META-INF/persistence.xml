@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd ">
 
-  <persistence-unit name="modelobanco" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="todoslosmodelos" transaction-type="RESOURCE_LOCAL">
   
+  	<class>cursojava.jpahibernate.orm.modelobanco.dto.DatosInforme</class>
+  	<class>cursojava.jpahibernate.orm.modelobanco.dto.EstadisticasCuenta</class>
   	<class>cursojava.jpahibernate.orm.modelobanco.entidades.Cliente</class>
   	<class>cursojava.jpahibernate.orm.modelobanco.entidades.Cuenta</class>
   	<class>cursojava.jpahibernate.orm.modelobanco.entidades.CuentaPk</class>
   	<class>cursojava.jpahibernate.orm.modelobanco.entidades.Movimiento</class>
+  	<class>cursojava.jpahibernate.orm.modelobiblio.entidades.Autor</class>
+  	<class>cursojava.jpahibernate.orm.modelobiblio.entidades.Libro</class>
+  	<class>cursojava.jpahibernate.orm.modelobiblio.entidades.Prestamo</class>
+  	<class>cursojava.jpahibernate.orm.modelobiblio.entidades.Usuario</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.conversores.ConversorDeSubcripcion</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Articulo</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.ClienteCompras</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Compra</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.DetalleCompra</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Domicilio</class>
   
   	<properties>
   		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
@@ -20,6 +32,29 @@
    	</properties>  	
   
   </persistence-unit>
+  
+  <persistence-unit name="modelobanco" transaction-type="RESOURCE_LOCAL">
+  
+  	<class>cursojava.jpahibernate.orm.modelobanco.dto.DatosInforme</class>
+  	<class>cursojava.jpahibernate.orm.modelobanco.dto.EstadisticasCuenta</class>
+  	<class>cursojava.jpahibernate.orm.modelobanco.entidades.Cliente</class>
+  	<class>cursojava.jpahibernate.orm.modelobanco.entidades.Cuenta</class>
+  	<class>cursojava.jpahibernate.orm.modelobanco.entidades.CuentaPk</class>
+  	<class>cursojava.jpahibernate.orm.modelobanco.entidades.Movimiento</class>
+   
+  	<properties>
+  		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+  		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/curso"/>
+  		<property name="javax.persistence.jdbc.user" value="curso"/>
+  		<property name="javax.persistence.jdbc.password" value="Fedora2023"/>
+  		
+  		<property name="hibernate.show_sql" value="true"/>
+  		<property name="hibernate.format_sql" value="true"/>
+  		
+   	</properties>  	
+  
+  </persistence-unit>
+  
   
   <persistence-unit name="modelobiblio" transaction-type="RESOURCE_LOCAL">
   
@@ -40,6 +75,30 @@
    	</properties>  	
   
   </persistence-unit>
+  
+  <persistence-unit name="modelocompras" transaction-type="RESOURCE_LOCAL">
+
+  	<class>cursojava.jpahibernate.orm.modelocompras.conversores.ConversorDeSubcripcion</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Articulo</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.ClienteCompras</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Compra</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.DetalleCompra</class>
+  	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Domicilio</class>  
+  
+  	<properties>
+  		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+  		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/curso"/>
+  		<property name="javax.persistence.jdbc.user" value="curso"/>
+  		<property name="javax.persistence.jdbc.password" value="Fedora2023"/>
+<!--  		<property name="javax.persistence.validation.mode" value="AUTO" />
+-->  		
+  		<property name="hibernate.show_sql" value="true"/>
+  		<property name="hibernate.format_sql" value="true"/>
+  		
+   	</properties>  	
+  
+  </persistence-unit>
+  
   
    
 </persistence>
