@@ -1,0 +1,7 @@
+
+
+1. Consultar clientes por email.
+2. Consultar clientes por usuario y clave.
+3. Consultar clientes que hayan realizado compras en un rango de fechas.
+4. Consultar clientes que hayan comprado un artículo concreto (código).
+5. Consultar compras donde haya artículos que tengan un precio dentro de un rango de precios.

@@ -138,7 +138,7 @@ public class OperacionesModeloComprasImpl {
 			tx = em.getTransaction();
 			tx.begin();
 			
-			int i = 10006;
+			int i = 10011;
 			ClienteCompras cte = new ClienteCompras(
 					String.format("%08d", i),
 					"Nombre " + i,

@@ -13,12 +13,14 @@ import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-//import javax.validation.constraints.Email;
-//import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -48,6 +50,28 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedQueries(
+	{
+		@NamedQuery(
+			name = "ClienteCompras.porCorreo",
+			query = "select c from ClienteCompras c where c.email = :correo"
+		),
+		@NamedQuery(
+			name = "ClienteCompras.porUsuarioyClave",
+			query = "select c from ClienteCompras c where c.usuario = :usuario and c.clave = :clave"
+		),
+		@NamedQuery(
+			name = "ClienteCompras.porCompraEnRangeDeFechas",
+			query = "select c from ClienteCompras c join c.compras cta where cta.fecha between :inicio and :fin"
+		),
+		@NamedQuery(
+			name = "ClienteCompras.porArticuloComprado",
+			query = "select c from ClienteCompras c join c.compras cta join cta.detalle det " +
+					"where det.articulo.codigo = :codigoArticulo"
+		)				
+				
+	}
+)
 public class ClienteCompras {
 
 	@Id
@@ -57,7 +81,7 @@ public class ClienteCompras {
 	private String nif;
 
 	@NonNull
-	//@NotBlank
+	@NotBlank
 	@Size(min = 3)
 	private String nombre;
 
@@ -70,7 +94,7 @@ public class ClienteCompras {
 	private Domicilio domicilio;
 
 	@NonNull
-	//@Email
+	@Email
 	private String email;
 	
 	@NonNull

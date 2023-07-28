@@ -19,6 +19,8 @@
   	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Compra</class>
   	<class>cursojava.jpahibernate.orm.modelocompras.entidades.DetalleCompra</class>
   	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Domicilio</class>
+  	
+  	<validation-mode>AUTO</validation-mode>
   
   	<properties>
   		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
@@ -85,12 +87,15 @@
   	<class>cursojava.jpahibernate.orm.modelocompras.entidades.DetalleCompra</class>
   	<class>cursojava.jpahibernate.orm.modelocompras.entidades.Domicilio</class>  
   
+    <validation-mode>AUTO</validation-mode>
+    
   	<properties>
   		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
   		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/curso"/>
   		<property name="javax.persistence.jdbc.user" value="curso"/>
   		<property name="javax.persistence.jdbc.password" value="Fedora2023"/>
-<!--  		<property name="javax.persistence.validation.mode" value="AUTO" />
+<!--  		
+		<property name="javax.persistence.validation.mode" value="none" />
 -->  		
   		<property name="hibernate.show_sql" value="true"/>
   		<property name="hibernate.format_sql" value="true"/>

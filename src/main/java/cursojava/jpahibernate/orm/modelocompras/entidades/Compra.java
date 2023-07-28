@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,6 +33,33 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedQueries(
+	{
+		@NamedQuery(
+			name = "Compra.porArticuloEnRangoDePrecio",
+			
+//			query = "select cta.codigo,cta.cliente.nif,cta.fecha,cta.total,cta.numero,cta.fechaAlta " +
+//					 "from Compra cta join cta.detalle det " +
+//					 "where det.articulo.precioUnidad between :precioMinimo and :precioMaximo"
+					 
+			query = "select cta " +
+					 "from Compra cta join cta.detalle det join fetch cta.cliente " +
+					 "where det.articulo.precioUnidad between :precioMinimo and :precioMaximo"
+					 
+		),
+		@NamedQuery(
+			name = "Compra.porArticuloEnRangoDePrecio2",			
+//			query = "select cta.codigo as codigo ,cta.cliente.nif as nif,cta.fecha as fecha,cta.total as total ,cta.numero as numero ,cta.fechaAlta as fechaAlta " +
+//					 "from Compra cta join cta.detalle det " +
+//					 "where det.articulo.precioUnidad between :precioMinimo and :precioMaximo"	
+					 
+			query = "select new cursojava.jpahibernate.orm.modelocompras.dto.DatosCompra(cta.codigo,cta.cliente.nif,cta.fecha,cta.total,cta.numero,cta.fechaAlta) " +
+					 "from Compra cta join cta.detalle det " +
+					 "where det.articulo.precioUnidad between :precioMinimo and :precioMaximo"					 
+					 
+		)
+	}
+)
 public class Compra {
 
 	@Id
